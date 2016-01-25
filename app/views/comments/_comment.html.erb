@@ -1,19 +1,13 @@
-<ol>
-<div class="comment">
-  <span class="image"><%= link_to gravatar_for(comment.user, size: 50), comment.user %></span>
-  <span class="user"><%= link_to comment.user.name %></span>
-  <span class= "timestamp-comment">  
-    Commented <%= time_ago_in_words(comment.created_at) %> ago.
-  </span>
-  <div class="container">
-    <span class="tip tip-up"></span>
-      <div class="message">
-        <span><%= comment.content %></span> 
-        <% if current_user?(comment.user) %>
-            <%= link_to "delete", comment, method: :delete,
-                             data: {confirm: "Are you sure?"} %>
-        <% end %>
-      </div>
-  </div>  
+<div class="col-md-10 col-md-offset-2">
+<span class = "col-md-1-offset-2"><%= link_to gravatar_for(comment.user, size: 50), comment.user %></span>
+<span class="col-md-1 text-left "><%= link_to comment.user.name %></span>
+<span class= "col-md-6 ">  
+  Commented <%= time_ago_in_words(comment.created_at) %> ago.
+</span>
+<span class="row"><%= comment.content %>
+  <% if current_user?(comment.user) %>
+      <%= link_to "delete", comment, method: :delete,
+                       data: {confirm: "Are you sure?"} %>
+  <% end %>
+</span>
 </div>
-</ol>

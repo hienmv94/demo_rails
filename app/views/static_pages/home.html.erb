@@ -18,11 +18,10 @@
     </div>
   </div>
 <% else %>
-  <div class="center jumbotron">
-    <section class="entry">
-      <%= render 'shared/entries' %>
-    </section>
+  <div class="col-md-8-offset-4" %>
+    <%= render 'shared/entries' %>
   </div>
+
 
   <%= link_to image_tag("rails.png", alt: "Rails logo"),'http://rubyonrails.org/' %>
 <% end %>

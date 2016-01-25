@@ -22,8 +22,14 @@ users = User.order(:created_at).take(6)
 50.times do |n|
   title = "Demo- #{n+1}"
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.entries.create!(title: title, content: content) }
+  comment = "This is Demo"
+  users.each { |user| user.entries.create!(title: title, content: content)}
 end
+# users = User.last(6)
+# 50.times do |n|
+#   content = "This is comment"
+#   users.each {|user| user.comments.create!(content: content, entry_id: n)}
+# end
 
 
 # Following relationships

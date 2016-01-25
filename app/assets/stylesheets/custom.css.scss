@@ -146,7 +146,8 @@ aside {
 
 .gravatar {
   float: left;
-  margin-right: 10px;
+  margin-right: 2px;
+  margin-bottom: 10px;
 }
 
 .gravatar_edit {
@@ -257,7 +258,7 @@ input {
   .user {
     margin-top: 1em;
     padding-top: 0;
-    padding-left: 5;
+    padding-left: 1;
   }
   .image {
     margin-right:5px;
@@ -273,24 +274,32 @@ input {
     margin-right:5px;
     height:100%;
     float:left; 
+    background-color: #dddddd;
+  }
     
   .title {
     display: block;
     margin-left: 20px;
   }
-}
+
   .timestamp {
     color: $gray-light;
     display: block;
     margin-left: 60px;
   }
   .gravatar {
-    float: left !important;
-    margin-right: 10px !important;
-    margin-top: 5px !important;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
   }
 }
+.comment {
 
+  display: block;;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
 aside {
   textarea {
     height: 100px;

@@ -1,7 +1,11 @@
+<div class="row">
+<div class="col-md-10 col-md-offset-2">
 <%= form_for([entry, entry.comments.build], remote: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-      <%= f.text_area :content, placeholder: "Comment..."%>
+      <%= f.text_area :content, id: "comments_"<< entry.id.to_s, placeholder: "Comment..."%>
   </div>
   <%= f.submit "Comment", class: "btn btn-primary" %>
 <% end %>
+</div>
+</div>

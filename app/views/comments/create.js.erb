@@ -1,1 +1,2 @@
 $("#comments-<%= @entry.id %>").html("<%= escape_javascript(render(partial: @entry.comments)) %>");
+$("#comments_<%= @entry.id %>").val('');
