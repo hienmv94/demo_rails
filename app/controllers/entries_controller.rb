@@ -20,7 +20,6 @@ class EntriesController < ApplicationController
     redirect_to request.referrer || root_url # redirect to previous pages before delete post or root pages
 
   end
-
   private
     def entry_params
       params.require(:entry).permit(:title, :content)

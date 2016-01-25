@@ -255,17 +255,25 @@ input {
     border-top: 1px solid #e8e8e8;
   }
   .user {
-    margin-top: 5em;
+    margin-top: 1em;
     padding-top: 0;
+    padding-left: 5;
+  }
+  .image {
+    margin-right:5px;
+    height:100%;
+    float:left;
+    width:100%;
+    border-radius:50%;
   }
   .content {
     display: block;
     margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-      margin-left: 0px !important;
-    }
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left; 
+    
   .title {
     display: block;
     margin-left: 20px;
@@ -294,19 +302,5 @@ span.picture {
   margin-top: 10px;
   input {
     border: 0;
-  }
-}
-
-.comment {
-  img {
-    width: 40px;
-    height: 30px;
-  }
-  .delete {
-  float: right;
-  color: #FF0000;
-  }
-  .username {
-    font-size: 16px;
   }
 }
