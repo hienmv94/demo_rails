@@ -1,26 +1,28 @@
 <!-- <li class = "entries"> -->
 <div class="row">
-  <span class="img-circle"><%= link_to gravatar_for(entry.user, size: 50), entry.user %></span>
+  <span class="col-md-1"><%= link_to gravatar_for(entry.user, size: 50), entry.user %></span>
   <span class="col-md-1"><%= link_to entry.user.name, entry.user %></span>
   <span class="col-md-2"><strong><%= entry.title %></strong></span>
-  <span class="col-md-8">
-    Posted <%= time_ago_in_words(entry.created_at) %> ago.
-  </span>
-  <span class=""><%= entry.content %>
+  <span class="col-md-7"><em>Posted <%= time_ago_in_words(entry.created_at) %> ago.</em></span>
+  <span class="col-md-1 text-right"> 
     <% if current_user?(entry.user) %>
-      <%= link_to "delete", entry, method: :delete,
+        <%= link_to '', entry, :class => "glyphicon glyphicon-remove", method: :delete,
                                        data: { confirm: "You sure?" } %>
-    <% end %>
+  <% end %>
   </span>
+  <div class="row">
+    <div class= "col-md-10 col-md-offset-2">
+      <%= entry.content %>
+    </div>
+  </div>
   <!-- Comment -->
-
   <% if logged_in? %>
     <% if current_user?(entry.user) || current_user.following?(entry.user) %>
       <%= render 'shared/comment_form', entry: entry %>
     <% end %> 
   <% end %>
-  <div id="comments-<%= entry.id %>" class="row">
-   <% entry.comments.each do |comment| %>
+  <div id="comments-<%= entry.id %>">
+    <% entry.comments.each do |comment| %>
       <% if !comment.id.nil? %>
         <%= render "comments/comment", comment: comment %>
       <%  end %>

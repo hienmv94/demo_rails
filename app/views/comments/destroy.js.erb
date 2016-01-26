@@ -1,2 +1,3 @@
-$("#follow_form").html("<%= escape_javascript(render('users/follow')) %>");
-$("#followers").html('<%= @user.followers.count %>');
+
+$("#comments-<%= @entry_id %>").html("<%= escape_javascript(render(partial: @entry.comments)) %>");
+<% binding.pry %>
