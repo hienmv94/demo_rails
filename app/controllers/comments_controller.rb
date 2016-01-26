@@ -21,17 +21,8 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @entry_id = @comment.entry_id
-    if @comment.destroy
-      respond_to do |format|
-        format.html do     
-          flash[:success] = "entry deleted"
-          redirect_to request.referrer || root_url
-        end
-        format.js { @entry_id }
-      end
-    else
-      flash.now[:danger] = "Error"
-    end
+    @entry = @comment.entry
+    @comment.destroy
   end
 
   private

@@ -2,12 +2,12 @@
 <div class="row">
   <span class="col-md-1"><%= link_to gravatar_for(entry.user, size: 50), entry.user %></span>
   <span class="col-md-1"><%= link_to entry.user.name, entry.user %></span>
-  <span class="col-md-2"><strong><%= entry.title %></strong></span>
-  <span class="col-md-7"><em>Posted <%= time_ago_in_words(entry.created_at) %> ago.</em></span>
+  <span class="col-md-6"><strong><%= entry.title %></strong></span>
+  <span class="col-md-3"><em>Posted <%= time_ago_in_words(entry.created_at) %> ago.</em></span>
   <span class="col-md-1 text-right"> 
     <% if current_user?(entry.user) %>
         <%= link_to '', entry, :class => "glyphicon glyphicon-remove", method: :delete,
-                                       data: { confirm: "You sure?" } %>
+                                    remote: true, data: { confirm: "You sure?" } %>
   <% end %>
   </span>
   <div class="row">

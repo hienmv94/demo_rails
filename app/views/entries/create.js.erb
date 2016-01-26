@@ -1,0 +1,4 @@
+
+$("#entries_<%= current_user.id %>").html("<%= escape_javascript(render(partial: @entries)) %>");
+$("#title_entry_<%=  current_user.id %>").val('');
+$("#content_entry_<%=  current_user.id %>").val('');

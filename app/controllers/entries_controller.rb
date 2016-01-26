@@ -5,27 +5,24 @@ class EntriesController < ApplicationController
     
   def create
     @entry = current_user.entries.build(entry_params)
-    if @entry.save
-      flash[:success] = "New entry is created."
-      redirect_to root_url
-    else
-      @feed_items = []
-      render "static_pages/home"
-    end
+    @entry.save
+    flash.now[:success] = "New entry is created."
+    @entries = current_user.feed.paginate(page: params[:page])
   end
 
   def destroy
+    @entry = Entry.find(params[:id])
     @entry.destroy
-    flash[:success] = "entry deleted"
-    redirect_to request.referrer || root_url # redirect to previous pages before delete post or root pages
-
+    flash.now[:success] = "entry deleted"
+    @entries = current_user.feed.paginate(page: params[:page])
   end
+
   private
     def entry_params
       params.require(:entry).permit(:title, :content)
     end
     def correct_user
-      @entry = current_user.entries.find_by(id: params[:id])
-      redirect_to root_url if @entry.nil?
+      @entry =  @entry = Entry.find(params[:id])
+      current_user == @entry.user
     end
 end
